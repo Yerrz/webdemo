@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>typeof</title>
+    </head>
+    <body>
+        <!-- typeof用法 -->
+        <div style="border:1px solid rgb(114, 113, 113);padding: 20px;">
+            <h4>typeof 数据：判断数据类型</h4>
+            <script>document.write("{id:'23'} 类型：",typeof {id:'23'})</script><br>
+            <script>document.write("[23,'ds','你好'] 类型：",typeof [23,"ds","你好"])</script><br>
+            <script>document.write("23 类型：",typeof 23)</script><br>
+            <script>document.write("'23' 类型：",typeof "23")</script><br>
+            <script>document.write("true 类型：",typeof true)</script><br>
+            <script>var car;document.write("var car 类型：",typeof car,"，值：",car)</script><br>
+            <script>var car="";document.write("var car=' ' 类型：",typeof car,"，值：",car)</script><br>
+            <script>var car=null;document.write("var car=null 类型：",typeof car,"，值：",car)</script><br>
+            <script>var car=undefined;document.write("var car=undefined 类型：",typeof car,"，值：",car)</script><br>
+            <script>document.write("function myFunc(){} 类型：",typeof function myFunc(){})</script><br>
+        </div>
+    </body>
+</html>

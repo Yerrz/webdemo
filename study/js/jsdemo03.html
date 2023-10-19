@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>js输出</title>
+    </head>
+    <body>
+        <!-- 使用 innerHTML 写入 HTML 元素 -->
+        <div style="border:1px solid rgb(114, 113, 113);padding: 20px;">
+            <h2>innerHTML用法：</h2><br>
+            <p id="demo"></p>
+            <script>document.getElementById("demo").innerHTML="innerHTML输出HTML内容"</script>
+        </div>
+
+        <!-- 使用 document.write() 写入 HTML 输出 -->
+        <div style="border:1px solid rgb(114, 113, 113);padding: 20px;">
+            <h2>document.write()用法：</h2><br>
+            <p>直接输出数据：</p>
+            <script>document.write("我是document.write()输出的内容");</script>
+            <button onclick="document.write(5 + 6)">放入button中也可删除之前页面所有数据，仅用于测试，不要点！！！！</button>
+        </div>
+
+        <!-- 使用 window.alert() 写入警告框 -->
+        <div style="border:1px solid rgb(114, 113, 113);padding: 20px;">
+            <h2>window.alert()用法：</h2><br>
+            <script>window.alert("我是window.alert()弹出的警告框");</script>
+        </div>
+
+        <!-- 使用 console.log() 写入浏览器控制台 -->
+        <script>console.log(5 + 6);</script>
+    </body>
+</html>
+
+<!-- 使用 window.alert() 写入警告框 -->
+<!-- 使用 document.write() 写入 HTML 输出 -->
+<!-- 使用 innerHTML 写入 HTML 元素 -->
+<!-- 使用 console.log() 写入浏览器控制台 -->

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h2>改变HTML标签属性值</h2>
+        <div style="border:1px solid rgb(114, 113, 113);padding: 20px;">
+            <h4>改变图片,实现开关灯效果</h4>
+            <img id="myImage" src="../image/deng01.png" style="text-align:center;">
+            <button onclick="document.getElementById('myImage').src='../image/deng02.png'">点灯</button>
+            <button onclick="document.getElementById('myImage').src='../image/deng01.png'">关灯</button>
+        </div>
+        <div style="border:1px solid rgb(114, 113, 113);padding: 20px;">
+            <h4>改变文本框,实现密码明文显示</h4>
+            <input id="myInput" type="password">
+            <button onclick="document.getElementById('myInput').type='text'">显示</button>
+        </div>
+        <br>
+
+        <h2>改变CSS</h2>
+        <div style="border:1px solid rgb(114, 113, 113);padding: 20px;">
+            <!-- <h4>改变图片,实现开关灯效果</h4> -->
+            <a id="mytext">hahahha</a>
+            <button onclick="document.getElementById('mytext').style.color='red'">换颜色</button>
+        </div>
+        <br>
+
+        <h2>隐藏HTML元素</h2>
+        <div style="border:1px solid rgb(114, 113, 113);padding: 20px;">
+            <!-- <h4>改变图片,实现开关灯效果</h4> -->
+            <a id="mytext2">我在这儿！</a>
+            <button onclick="document.getElementById('mytext2').style.display='none'">隐藏文本</button>
+            <button onclick="document.getElementById('mytext2').style.display='inline'">显示文本</button>
+        </div>
+        <br>
+
+        <h2>外部 JavaScript</h2>
+        <div style="border:1px solid rgb(114, 113, 113);padding: 20px;">
+            <p id="demo">一个段落。</p>
+            <button type="button" onclick="myFunction()">试一试</button>
+            <p>（myFunction 存储在名为 "myScript.js" 的外部文件中。）</p>
+            <script src="https://www.w3school.com.cn/demo/myScript.js"></script>
+        </div>
+        <br>
+        
+    </body>
+</html>
