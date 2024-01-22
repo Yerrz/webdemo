@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>浏览器分辨率测试</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            font-size: 2em;
+        }
+    </style>
+    <script type="text/javascript">
+        function updateContent(){
+            let width = window.screen.width;
+            let height = window.screen.height;
+            let content = `
+                当前浏览器分辨率为：
+                ${width}x${height}
+            `;
+            document.getElementById("content").innerText = content;
+        }
+
+        window.onload = function(){
+            updateContent();
+        }
+
+        window.onresize = function(){
+            updateContent();
+        }
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="content"></div>
+    </div>
+</body>
+</html>

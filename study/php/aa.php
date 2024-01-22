@@ -6,7 +6,13 @@
     <script src="../js/jquery/jquery-1.8.0.js"></script>
     <script type="text/javascript">
         $(function() {
-            $("button").click(function() {
+            $(".textarea-show").click( function() {
+                //点击添加按钮，按钮消失输入框滑动显示
+                //sibings():同级元素   slideDown():向下滑出
+                $(this).hide().siblings().slideDown();
+            });
+
+            $("#button").click(function() {
                 $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
             });
 
@@ -29,6 +35,10 @@
             $("#tabs2").tabs();
 
         })
+        // function textareashow(id){
+        //     // $(this).hide();
+        //     $('#'+id).css("display","block");
+        // }
     </script>
     <style>
         .SP ul li {
@@ -52,6 +62,12 @@
 
 <body>
     <div>
+        <button type="button" class="btn_4 CN textarea-show"><strong>添加</strong></button>
+        <textarea style="display:none;" name="sBuyBusinessNote" id="sBuyBusinessNote" rows="5" class="text ui-widget-content"></textarea>
+        <br><span class="CM" style="display:none;">注：需要主管处理的事项，请说明工作事由。如已通过邮件发送，列明邮件主题和发送日期</span>
+    </div><br>
+
+    <div>
         <p id="test">test</p>
     </div>
     <div class="SP" style="border:1px solid red;">
@@ -69,7 +85,7 @@
 
     <div><input type="radio" value="" 2>2</div>
     <p id="p1">jQuery 乐趣十足！</p>
-    <button>点击这里</button>
+    <button id="button">点击这里</button>
     <hr>
 
     <div id="tabs">
@@ -164,5 +180,13 @@ print_r($lis);
 print("<br>This is 'var_dump':");
 var_dump($lis);
 
+
+$aType = array('cn','os','ag','hk');
+if(in_array('ag',$aType)){
+    echo 'ye';
+}
+
+
+echo $_SERVER['HTTP_HOST'];   //输出本机域名
 
 ?>

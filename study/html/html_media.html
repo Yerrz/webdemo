@@ -1,0 +1,107 @@
+<!-- 弹性布局+响应式布局（媒体查询） -->
+<html>
+<head>
+    <title>HTML Media</title>
+    <meta charset="UTF-8">
+     <!-- 视口宽度 >= 992px,网页背景色为粉色 -->
+    <!-- 视口宽度 >= 1200px 网页背景色为绿色 -->
+    <!-- <link rel="stylesheet" media="(min-width:992px)" href="one.css"> -->
+    <!-- <link rel="stylesheet" href="two.css" media="(min-width:1200px)"> -->
+    <style>
+        /* 
+        视口宽度 >= 768px，网页背景色为粉色
+        视口宽度 >= 992px 网页背景色为绿色
+        视口宽度 >= 1200px 网页背景色为skyblue
+      */
+    
+        /* 
+         媒体查询也是css，具有叠加性
+       */
+    
+        @media(min-width:375px) {
+            html {
+                font-size: 10px;
+            }
+            body {
+                background-color: red;
+            }
+        }    
+        @media(min-width:768px) {
+            html {
+                font-size: 20px;
+            }
+            body {
+                background-color: pink;
+            }
+        }
+    
+        @media(min-width:992px) {
+            html {
+                font-size: 30px;
+            }
+            body {
+                background-color: green;
+            }
+        }
+    
+        @media(min-width:1200px) {
+            html {
+                font-size: 40px;
+            }
+            body {
+                background-color: skyblue;
+            }
+            p {
+                display: none;
+            }
+        }
+        p {
+            font-size: 1.6rem;
+        }
+        .div {
+            /* flex容器 */
+            /* 可以设置的属性 */
+            /* 
+            flex-direction ：属性决定主轴的方向（即项目的排列方向） row | row-reverse | column | column-reverse
+            flex-wrap : 排列不下是否换行       nowrap | wrap | wrap-reverse
+            flex-flow : 是 flex-direction + flex-wrap的简写          默认row nowrap
+            justify-content : 定义了项目在主轴上的对齐方式   flex-start | flex-end | center | space-between（两端对齐，项目之间的间隔都相等） | space-around（每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍）
+            align-items : 定义项目在交叉轴上(y轴)如何对齐   flex-start | flex-end | center | baseline | stretch
+            align-content ：定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用    flex-start | flex-end | center | space-between | space-around | stretch
+            */
+            border: 1px solid black;
+            display: flex;
+            /* flex-flow: row nowrap; */
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .div_item {
+            /* flex项目 */
+            /* 可以设置属性 */
+            /* 
+            order ：定义项目的排列顺序。数值越小，排列越靠前，默认为0
+            flex-grow ：定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
+            flex-shrink ：属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+            flex-basis ：定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小，也可设置与width相似
+            flex ：属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选，该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+            align-self ：允许单个项目有与其他项目不一样的对齐方式
+            */
+            border: 1px solid darkgreen;
+        }
+        img {
+            width: 10rem;
+            height: 10rem;
+        }
+    </style>
+</head>
+<body>
+    <p>123</p>
+    <a>测试</a>
+    <img src="../image/deng01.png" alt="图片测试">
+    <div class="div">
+        <div class="div_item">div01</div>
+        <div class="div_item">div02</div>
+        <div class="div_item">div03</div>
+    </div>
+</body>
+</html>
