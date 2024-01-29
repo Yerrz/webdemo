@@ -2,6 +2,19 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <script src="../js/jquery/jquery-1.8.0.js"></script>
+        <script type="text/javascript">
+            // 从sessionStorage读取数据
+            const username = sessionStorage.getItem('username'); // "John"
+            const sessionStorageTest = sessionStorage.getItem('sessionStorageTest'); // "true"
+            console.log(username);
+            $(function(){
+                $('#back').click(function(){
+                    // window.location.href = "aa.php";
+                    window.history.go(-1);
+                });
+            })
+        </script>
         <style>
             #main {border:1px solid blanchedalmond;}
             #div01 {border:1px solid red;width: 800px;margin: 0 auto;}
@@ -10,6 +23,7 @@
         </style>
     </head>
     <body>
+        <button id="back">返回</button>
         <div id="main">
             <div id="div01">
                 <p><strong>检索结果：</strong>UA101017152721899,UA110418203620703,UA130328143651762,UA140307180853751,UA150703105634727,UA150929165520682,UA180404100530981,UA190130141043427,UA170602160053851,UA121012115224448,UA180326182411516UA101017152721899,UA110418203620703,UA130328143651762,UA140307180853751,UA150703105634727,UA150929165520682,UA180404100530981,UA190130141043427,UA170602160053851,UA121012115224448,UA180326182411516</p>
