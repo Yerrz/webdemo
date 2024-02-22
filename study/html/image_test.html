@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .avatar-container {
+            border: 1px solid red;
+            width: 200px; 
+            height: 200px;
+            overflow: hidden; /* 隐藏超出容器部分的内容 */
+            position: relative; /* 设置相对定位以便内部元素绝对定位 */
+            border-radius: 50%;
+        }
+
+        .avatar-container img {
+            width: auto;
+            height: 100%; 
+            position: absolute; /* 绝对定位 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 居中显示图片 */
+        }
+    </style>
+</head>
+<body>
+    <div class="avatar-container">
+        <img src="../image/image02.jpeg" alt="图片测试-把图片变成圆形头像">
+    </div>
+</body>
+</html>

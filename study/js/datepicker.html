@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery UI Datepicker - Year and Month Only</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <style>
+        .ui-datepicker-calendar {
+            display: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                onClose: function(dateText, inst) {
+                    var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+                    var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+                    $(this).datepicker("setDate", new Date(year, month, 1));
+                },
+                beforeShow: function(input, inst) {
+                    $(inst.dpDiv).find('.ui-datepicker-header').prepend('<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all" data-handler="today" data-event="click">' +
+                        '本月' +
+                        '</button>');
+                }
+            });
+            
+            // For simplicity, this will select the current month and year when the datepicker is opened
+            $("#datepicker").on("focus", function () {
+                var today = new Date();
+                $(this).datepicker('setDate', new Date(today.getFullYear(), today.getMonth(), 1));
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Date: <input type="text" id="datepicker"></p>
+</body>
+</html>
