@@ -16,13 +16,47 @@ $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&app
 $res = get_api($url);
 $res = json_decode($res,true);
 $access_token = $res['access_token'];
-echo $access_token;
-var_dump(get_api($url));
+// echo $access_token;
+echo json_encode(get_api($url));
+// var_dump(get_api($url));
 
-function hmac_sha256($key, $data) {
-    return hash_hmac('sha256', $data, $key, true);
-}
-echo hmac_sha256('F0bh0UGDjw7uOsZULPqflg==','');
+// //URL Scheme通过调用如下接口
+// $url2 = "https://api.weixin.qq.com/wxa/generatescheme?access_token=".$access_token;
+// $res2 = get_api($url2);
+// $res2 = json_decode($res2,true);
+// $openlink = $res2['openlink'];
+// echo $openlink;
+// var_dump(get_api($url2));
+
+//curl POST请求
+//URL Scheme通过调用如下接口
+$url2 = "https://api.weixin.qq.com/wxa/generatescheme?access_token=".$access_token; // 设置目标API地址
+// $data = array('key' => 'value','key2' => 'value2'); // POST数据
+$data = array(
+      "jump_wxa"=>array(
+        "path"=>"/pages/testapi/testapi",
+        "query"=>""
+      ),
+      "is_expire"=>true,
+      "expire_time"=>1606737600
+    ); // POST数据
+// 初始化cURL会话
+$ch = curl_init();
+// 配置cURL选项
+curl_setopt($ch, CURLOPT_URL, $url2);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+// 执行cURL请求并获取结果
+$result = curl_exec($ch);
+// 关闭cURL会话
+curl_close($ch);
+// 处理返回结果
+echo $result;
+
+// function hmac_sha256($key, $data) {
+//     return hash_hmac('sha256', $data, $key, true);
+// }
+// echo hmac_sha256('F0bh0UGDjw7uOsZULPqflg==','');
 
 // 签名校验
 // 小程序可以直接通过各种前端接口获取微信提供的开放数据。但如果开发者服务端也需要获取这些开放数据，

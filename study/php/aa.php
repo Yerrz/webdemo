@@ -74,6 +74,21 @@
         .SP .BtnSet input {
             display: none;
         }
+
+        .BtnSet input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .BtnSet label {
+        /* 这里添加未选中时label的样式 */
+        }
+
+        .BtnSet input[type="checkbox"]:checked + label {
+        /* 这里添加选中时label的样式 */
+        }
     </style>
 </head>
 
@@ -135,6 +150,12 @@
         </div>
     </div>
     <div id="testsessionstorage">testsessionstorage</div>
+
+    <!-- 测试隐藏选择框的多项选择 -->
+    <div class="BtnSet sSelectionType1">
+        <input type="checkbox" id="myCheckbox">
+        <label for="myCheckbox">多选1</label>
+    </div>
 
 
 </body>
@@ -210,4 +231,32 @@ if (in_array('ag', $aType)) {
 
 echo $_SERVER['HTTP_HOST'];   //输出本机域名
 
+
+// 测试
+function getDaysBetweenDates($date1, $date2,$type) {
+    $datetime1 = new DateTime($date1);
+    $datetime2 = new DateTime($date2);
+    $interval = $datetime1->diff($datetime2);
+
+    if($type=='y'){
+        return $interval->format('%y');  
+    }elseif($type=='m'){
+        return $interval->format('%m');  
+    }elseif($type=='a'){
+        return $interval->format('%a');
+    }
+
+}  
+$now_date=date('Y-m-d');
+$new_logintime = '';
+$interval_loginDate=getDaysBetweenDates($now_date, $new_logintime,'a');
+echo $interval_loginDate;
+
+$a = '';
+if((int)$a > 60){
+    echo "yes";
+}
+else{
+    echo "no";
+}
 ?>
